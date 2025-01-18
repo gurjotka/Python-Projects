@@ -5,10 +5,10 @@ from spotipy.oauth2 import SpotifyOAuth
 from spotipy.oauth2 import SpotifyClientCredentials
 
 
-SPOTIPY_CLIENT_ID = "ec962de5146c4fdea652c7ddd8de3018"
-SPOTIPY_CLIENT_SECRET = "0ec98ee5e3fa4d31a225f3c88ff6bf80"
-SPOTIPY_REDIRECT_URL = "https://example.com/auth"
-USERNAME = "gj"
+SPOTIPY_CLIENT_ID = "your spotify client id"
+SPOTIPY_CLIENT_SECRET = "your spotify client secret"
+SPOTIPY_REDIRECT_URL = "your spotify redirect url"
+USERNAME = "your spotify username"
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope="playlist-modify-private",
                                                redirect_uri=SPOTIPY_REDIRECT_URL,
@@ -18,11 +18,6 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope="playlist-modify-private",
                                                username=USERNAME,
                                                )
                      )
-
-# results = sp.current_user_saved_tracks()
-# for idx, item in enumerate(results['items']):
-#     track=item["track"]
-#     print(idx, track['artists'][0]['name'], "-", track['name'])
 
 user_id = sp.current_user()["id"]
 user_display_name = sp.current_user()["display_name"]
